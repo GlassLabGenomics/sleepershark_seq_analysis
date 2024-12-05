@@ -24,7 +24,7 @@ mamba install -c bioconda unikseq
 
 ### What this all looks like on my computer:
 
-```sh
+```
 (base) [yhsieh@chinook04 yhsieh]$ mamba activate bioenv
 (bioenv) [yhsieh@chinook04 sleepershark_primers]$ mamba install -c bioconda unikseq
 
@@ -94,3 +94,24 @@ Executing transaction: done
 Workflow
 --------
 Unikseq is written in Perl, and the main script to run it is `unikseq.pl`. 
+
+From the documentation, the options for running it are given below. More detailed explanation of each parameter can be found on unikseq's source page on GitHub.
+```
+Usage: unikseq.pl
+-----input files-----
+ -r reference FASTA (required)
+ -i ingroup FASTA (required)
+ -o outgroup FASTA (required)
+-----k-mer uniqueness filters-----
+ -k length (option, default: -k 25)
+ -l [leniency] min. non-unique consecutive k-mers allowed in outgroup (option, default: -l 0)
+ -m max. [% entries] in outgroup tolerated to have a reference k-mer (option, default: -m 0 % [original behaviour])
+-----output filters-----
+ -t print only first t bases in tsv output (option, default: -t [k])
+ -c output conserved FASTA regions between reference and ingroup entries (option, -c 1==yes -c 0==no, [default, original unikseq behaviour])
+ -s min. reference FASTA region [size] (bp) to output (option, default: -s 100 bp)
+ -p min. [-c 0:region average /-c 1: per position] proportion of ingroup entries (option, default: -p 0 %)
+ -u min. [% unique] k-mers in regions (option, default: -u 90 %)
+ -v output tsv files (option, -v 1==yes -v 0==no [default])
+```
+A typical workflow is described below, using data from our testdata folder.
