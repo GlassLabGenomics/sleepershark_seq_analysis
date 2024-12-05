@@ -91,13 +91,13 @@ Verifying transaction: done
 Executing transaction: done
 ```
 
-Workflow
+Usage
 --------
 Unikseq is written in Perl, and the main script to run it is `unikseq.pl`. 
 
-From the documentation, the options for running it are given below. More detailed explanation of each parameter can be found on unikseq's source page on GitHub.
+From the documentation, the options for running it are given below. More detailed explanation of each parameter can be found on [unikseq's source page on GitHub](https://github.com/bcgsc/unikseq).
 ```
-Usage: unikseq.pl
+Usage: unikseq.plsrun -p debug --nodes=1 --exclusive --pty /bin/bash
 -----input files-----
  -r reference FASTA (required)
  -i ingroup FASTA (required)
@@ -114,4 +114,19 @@ Usage: unikseq.pl
  -u min. [% unique] k-mers in regions (option, default: -u 90 %)
  -v output tsv files (option, -v 1==yes -v 0==no [default])
 ```
-A typical workflow is described below, using data from our testdata folder.
+
+Workflow
+--------
+A typical workflow is described below, using data from our testdata folder. Before you do start, make sure you organise your files such that you have a reference, ingroup (target species), and outgroup (non-target species).
+In our example, the NCBI Somniosus microcephalus mitogenome is the reference (microcephalus_mitogenome_NC_049864.1.fasta), our ingroup has 3 mitogenomes from S.microcephalus (microcephalus.fasta), and our outgroup has 6 mitogenomes from S.pacificus and S.antarcticus (antarcticus_pacificus.fasta).
+
+1. From $CENTER1, start a interactive job: `srun -p debug --nodes=1 --exclusive --pty /bin/bash`
+2. Activate your virtual environment where you have unikseq installed: `mamba activate bioenv`
+3. Run unikseq from the command line:\
+   `unikseq.pl -k 25 -r microcephalus_mitogenome_NC_049864.1.fasta -i microcephalus.fasta -o antarcticus_pacificus.fasta`
+4. Check your output, you should get `.bed`, `.log`, and `unique.fa` files.
+   ```
+   unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0.bed
+   unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0.log
+   unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0-unique.fa
+   ```
