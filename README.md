@@ -102,7 +102,7 @@ Unikseq is written in Perl, and the main script to run it is `unikseq.pl`.
 
 From the documentation, the options for running it are given below. More detailed explanation of each parameter can be found on [unikseq's source page on GitHub](https://github.com/bcgsc/unikseq).
 ```
-Usage: unikseq.plsrun -p debug --nodes=1 --exclusive --pty /bin/bash
+Usage: unikseq.pl
 -----input files-----
  -r reference FASTA (required)
  -i ingroup FASTA (required)
