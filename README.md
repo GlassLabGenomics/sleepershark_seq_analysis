@@ -129,7 +129,7 @@ In our example, the NCBI Somniosus microcephalus mitogenome is the reference (mi
 
 1. From $CENTER1, start a interactive job: `srun -p debug --nodes=1 --exclusive --pty /bin/bash`.\
    If you get slurmstepd errors, or you get redirected to the tmp folder, run this instead `srun --pty bash -i`.
-3. Activate your virtual environment where you have unikseq installed: `mamba activate bioenv`
+3. Activate your virtual environment where you have unikseq installed: `mamba activate bioenv`, navigate to your testdata folder if you haven't already done so.
 4. Run unikseq from the command line, with defaults:\
    `unikseq.pl -k 25 -r microcephalus_mitogenome_NC_049864.1.fasta -i microcephalus.fasta -o antarcticus_pacificus.fasta`
 5. Check your output, you should get `.bed`, `.log`, and `unique.fa` files.
