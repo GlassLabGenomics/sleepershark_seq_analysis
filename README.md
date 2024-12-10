@@ -127,11 +127,12 @@ Before you do start, make sure you organise your files such that you have a refe
 
 In our example, the NCBI Somniosus microcephalus mitogenome is the reference (microcephalus_mitogenome_NC_049864.1.fasta), our ingroup has 3 mitogenomes from S.microcephalus (microcephalus.fasta), and our outgroup has 6 mitogenomes from S.pacificus and S.antarcticus (antarcticus_pacificus.fasta).
 
-1. From $CENTER1, start a interactive job: `srun -p debug --nodes=1 --exclusive --pty /bin/bash`
-2. Activate your virtual environment where you have unikseq installed: `mamba activate bioenv`
-3. Run unikseq from the command line, with defaults:\
+1. From $CENTER1, start a interactive job: `srun -p debug --nodes=1 --exclusive --pty /bin/bash`.\
+   If you get slurmstepd errors, or you get redirected to the tmp folder, run this instead `srun --pty bash -i`.
+3. Activate your virtual environment where you have unikseq installed: `mamba activate bioenv`
+4. Run unikseq from the command line, with defaults:\
    `unikseq.pl -k 25 -r microcephalus_mitogenome_NC_049864.1.fasta -i microcephalus.fasta -o antarcticus_pacificus.fasta`
-4. Check your output, you should get `.bed`, `.log`, and `unique.fa` files.
+5. Check your output, you should get `.bed`, `.log`, and `unique.fa` files.
    ```
    unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0.bed
    unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0.log
