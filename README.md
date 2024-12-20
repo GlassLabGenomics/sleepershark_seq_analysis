@@ -1,7 +1,7 @@
 Sleeper Shark (in silico) barcoding
 ===================================
 
-This repository contains scripts and example files to run unikseq on sleeper shark mitogenomes, with the purpose of finding identifying regions for target species to amplify with qPCR.
+This repository contains scripts and example files to run unikseq on sleeper shark mitogenomes, with the purpose of finding identifying regions for target species to amplify with qPCR. Unikseq is designed to help with an initial screening of regions that could be considered for primer design, but it isn't written with biological considerations (GC content, length, melting temp, etc.) in mind, which means that the user has to keep these in mind when performing the parameter tuning step. See section on Parameter Considerations below for a more detailed discussion of this.
 
 The link to the tool is given here: [unikseq tool](https://github.com/bcgsc/unikseq), and the corresponding publication: [Allison et al. 2023](https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.438).
 
@@ -138,3 +138,7 @@ In our example, the NCBI Somniosus microcephalus mitogenome is the reference (mi
    unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0.log
    unikseq_v1.3.5-r_microcephalus_mitogenome_NC_049864.1.fasta-i_microcephalus.fasta-o_antarcticus_pacificus.fasta-k25-c0-s100-p0-l0-u90-m0-unique.fa
    ```
+   
+Parameter Considerations
+------------------------
+Setting up your basic unikseq run only requires the reference, ingroup, and outgroup sequence fasta files. However, to find usable unique regions you usually have to adjust the optional parameters. Here the most important parameters to tune are explained: The first parameter to pay attention to is your k-mer size (`-k` option), which controls how big of a sliding window use use across your reference sequence to search for unique segments. For primer design the ideal size ranges between 8 and 30 bases, which is why the default k-mer value is 25. If the sliding window is set to 25 and the 
