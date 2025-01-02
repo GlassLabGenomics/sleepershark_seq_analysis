@@ -23,7 +23,7 @@ GS513_antarcticus
 
 GS514_antarcticus
 
-## Outgroup (8 sequences)
+## Outgroup (10 mitogenomes)
 
 GS348 longus
 
