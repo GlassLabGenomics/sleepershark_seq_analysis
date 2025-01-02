@@ -5,6 +5,8 @@ This repository contains scripts and example files to run unikseq on sleeper sha
 
 The link to the tool is given here: [unikseq tool](https://github.com/bcgsc/unikseq), and the corresponding publication: [Allison et al. 2023](https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.438).
 
+To view the results of unikseq used on _S.pacificus_ mitogenomes, visit this [link](pacificus_vs_others/results.md). For an explanation of inputs, read [this](pacificus_vs_others/inputs.md).
+
 Installation
 ------------
 
