@@ -1,7 +1,7 @@
 # Explanation of input sequences
 According the unikseq documentation, the reference should be a high quality, complete genome for the target species - in our case, the _Somniosus pacificus_ mitochonrial genome. Then, ingroup sequences should be genome sequences from other individuals of the same species, from different sampling events, for example, that might help in capturing intraspecific genetic variability. We put the remainder of known _S.pacificus_ mitogenomes, as well as the _S.antarcticus_ mitogenomes, into this group. This grouping together follows the Christenson 2022 MSc. thesis, which found the two species to be virtually indistinguishable. Outgroup sequences are from other species that we wish to compare against, usually species that are related to but distinct from the target, that we want to avoid matching with or amplifying. These are mitogenomes from the remaining _Somniosus_ species, _S.microcephalus_, _S.longus_, _S.rostratus_.
 
-Below we list the accession IDs and headers for each of the sequences in our three groups.
+Below we list the accession IDs and headers for each of the sequences in our three groups. Sequences starting with GS were provided by Jacob Christenson, other sequences were pulled from NCBI GenBank.
 
 ## Reference (1 mitogenome)
 
@@ -23,7 +23,7 @@ GS513_antarcticus
 
 GS514_antarcticus
 
-## Outgroup 
+## Outgroup (8 sequences)
 
 GS348 longus
 
