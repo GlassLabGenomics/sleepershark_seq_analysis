@@ -1,38 +1,135 @@
-## _How does varying the k-mer size affect results?_
+## _How does varying the k-mer size and minimum sequence length affect results?_
 
 ### K-mer size and minimum sequence length (k, s)
 
-(25,100): default, no unique sequence segments returned
+#### We start with running the with default k-mer size 25 and minimum sequence length 100.
 
-We try decreasing the minimum sequence length while holding the k-mer size constant, to roughly find an optimum where size is not compromised but unique segments can be found.
+(k=25, s=100): default, no unique sequence segments returned
 
-(25, 80)
+#### We try decreasing the minimum sequence length while holding the k-mer size constant, to search for roughly the longest stretch of unique sequence segment resulting from searches with 25-mers.
 
-(25, 70)
+(k=25, s=80): no unique sequence segments returned
 
-(25, 60)
+(k=25, s=70): no unique sequence segments returned
 
-(25, 50)
+(k=25, s=60): no unique sequence segments returned
 
-(25, 40)
+(k=25, s=50): no unique sequence segments returned
 
-(25, 30)
+<details>
+  <summary>(k=25, s=40)</summary>
+>NC_022734.1region15893-15932_size40_propspcIN25.0_propunivsOUT100.0_avgOUTentries0.0
+TAAAAATTCATAACCCACATTAATTTATAATCAATATATT
+</details>
 
-Then we try increasing the k-mer size while holding the minimum sequence length constant at 60.
+<details>
+  <summary>(k=25, s=30)</summary>
+>NC_022734.1region13651-13687_size37_propspcIN28.2_propunivsOUT100.0_avgOUTentries0.0
+TCTTATCCAACAAACACCTCTAATCAAATTATCTACA
+>NC_022734.1region14795-14828_size34_propspcIN25.6_propunivsOUT100.0_avgOUTentries0.0
+CACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+>NC_022734.1region15893-15932_size40_propspcIN25.0_propunivsOUT100.0_avgOUTentries0.0
+TAAAAATTCATAACCCACATTAATTTATAATCAATATATT
+</details>
 
-(30, 60)
+#### Then, the total number of unique 25-mers is 25, with the segments shown below: 
+<details>
+  <summary>(k=25, s=25)</summary>
+>NC_022734.1region1167-1191_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+ACATTTTACACCTTTTAGTATGGGC
+>NC_022734.1region2301-2325_size25_propspcIN14.3_propunivsOUT100.0_avgOUTentries0.0
+TAATTTAATTGTTTTTGGTTGGGGC
+>NC_022734.1region2943-2967_size25_propspcIN28.6_propunivsOUT100.0_avgOUTentries0.0
+GGGCTACATACAATTCCGTAAAGGC
+>NC_022734.1region4417-4441_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+TCTAGCCACCTGACAAAAACTTGCC
+>NC_022734.1region5771-5795_size25_propspcIN28.6_propunivsOUT100.0_avgOUTentries0.0
+TTGATTACTCCCCCCCTCTCTCCTG
+>NC_022734.1region5858-5882_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+CCTTGCAGGTAATATAGCCCACGCC
+>NC_022734.1region7077-7101_size25_propspcIN49.7_propunivsOUT100.0_avgOUTentries0.0
+CACTCTGTCACTTTCTTTGTAAGAC
+>NC_022734.1region7608-7632_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+AGAATCCCCCATTCGTGTTCTAGTA
+>NC_022734.1region7758-7782_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+TTCAGAGATTTGTGGTGCTAACCAC
+>NC_022734.1region8148-8172_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+ATTAATTGCCCTAGCAATTATAATT
+>NC_022734.1region8355-8379_size25_propspcIN71.4_propunivsOUT100.0_avgOUTentries0.0
+TTTACTACCATATACTTTTACACCC
+>NC_022734.1region8476-8500_size25_propspcIN14.3_propunivsOUT100.0_avgOUTentries0.0
+CACCTACTACCAGAAGGCACTCCAG
+>NC_022734.1region8539-8563_size25_propspcIN14.3_propunivsOUT100.0_avgOUTentries0.0
+AGCCTCTTTATTCGACCTTTAGCAC
+>NC_022734.1region9092-9116_size25_propspcIN71.4_propunivsOUT100.0_avgOUTentries0.0
+CCTTGCCCCCACACCAGAATTGGGC
+>NC_022734.1region9794-9818_size25_propspcIN56.6_propunivsOUT100.0_avgOUTentries0.0
+ACTGCGCTTCTTCCTTGTGGCGATC
+>NC_022734.1region10598-10622_size25_propspcIN14.3_propunivsOUT100.0_avgOUTentries0.0
+CCACATTTCCACTGAACCTATTATG
+>NC_022734.1region11965-11989_size25_propspcIN57.1_propunivsOUT100.0_avgOUTentries0.0
+CTTCCTCCTCATCTTCATTATCCTG
+>NC_022734.1region13651-13687_size37_propspcIN28.2_propunivsOUT100.0_avgOUTentries0.0
+TCTTATCCAACAAACACCTCTAATCAAATTATCTACA
+>NC_022734.1region13930-13954_size25_propspcIN50.9_propunivsOUT100.0_avgOUTentries0.0
+CATCTCCTCAACCCCCGCTCAACCA
+>NC_022734.1region14768-14792_size25_propspcIN28.6_propunivsOUT100.0_avgOUTentries0.0
+ATGAGGACAAATATCTTTCTGAGGA
+>NC_022734.1region14795-14828_size34_propspcIN25.6_propunivsOUT100.0_avgOUTentries0.0
+CACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+>NC_022734.1region15260-15284_size25_propspcIN71.4_propunivsOUT100.0_avgOUTentries0.0
+CTTTATCCTCATATTGGTTCCAATA
+>NC_022734.1region15310-15334_size25_propspcIN14.3_propunivsOUT100.0_avgOUTentries0.0
+ATACCTTCCGACCCCCAGCCCAAAC
+>NC_022734.1region15893-15932_size40_propspcIN25.0_propunivsOUT100.0_avgOUTentries0.0
+TAAAAATTCATAACCCACATTAATTTATAATCAATATATT
+>NC_022734.1region16300-16324_size25_propspcIN28.6_propunivsOUT100.0_avgOUTentries0.0
+ATCCTCGGACTCTGGTCATTAAGTA
+</details>
 
-(35, 60)
+#### Then we try increasing the k-mer size while holding the minimum sequence length constant at 60.
 
-(40, 60)
+<details>
+  <summary>(k=30, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
 
-(45, 60)
+<details>
+  <summary>(k=35, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
 
-(50, 60)
+<details>
+  <summary>(k=40, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
 
-(55, 60)
+<details>
+  <summary>(k=45, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
 
-(60, 60)
+<details>
+  <summary>(k=50, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
+
+<details>
+  <summary>(k=55, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
+
+<details>
+  <summary>(k=60, s=60)</summary>
+>NC_022734.1region14763-14828_size66_propspcIN26.0_propunivsOUT100.0_avgOUTentries0.0
+CTACCATGAGGACAAATATCTTTCTGAGGAGCCACAGTTATTACTAATCTTCTTTCAGCCTTCCCA
+</details>
 
 ## _Do the unique sequence segments match with primers found visually?_
 
