@@ -205,6 +205,10 @@ CATCTAGACCTAAATTGAGATATTAAATAAATGAAATCCTCGGACTCTGGTCATTAAGTA
 
 ## _Do the unique sequence segments match with primers found visually?_
 
+The region corresponding to cytochrome B in the _S.pacificus_ mitogenome is from 14365-15510. From the unikseq analysis, one recurrent unique region extends from approximately 14740-14828 (found in all runs where minimum sequence length s is held at 60), which encompasses part of the cytochrome B region. Another region that is found is region 15873-15932, which overlaps with an annotated D-loop. When k=60 and s=60, unique segments are found in the COXI region (5500-7000) but one would have to verify closely if these are unique enough to be truly identifying somniosus. 
+
+Refer to the annotated mitochondrial genome from the [MitoFish database](https://mitofish.aori.u-tokyo.ac.jp/species/result/?q=Somniosus+pacificus). 
+
 ## _What are the main unique zones as visualised with the butterfly plot?_
 The butterfly plot shows on the y-axis each position of the reference sequence, so every base of the _S.pacificus_ mitogenome, and on the x-axis the proportion that the base was found in a unique k-mer in the ingroup (left, teal), vs the proportion that the base was found to be in a non-unique k-mer (right, salmon). In this way, one can get an overall visualisation of which regions of the reference genome are unique to the reference, to what extent they are found in the ingroup, and which regions are very similar between the target and the outgroup. If one wants a unique sequence segment that is found in a higher proportion of the ingroup sequences, one would choose a region that is having the longest left-wards facing teal lines, that ideally does not have too much of a rightward facing, salmon colored cluster of lines.
 
