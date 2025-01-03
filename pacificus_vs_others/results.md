@@ -210,11 +210,11 @@ CATCTAGACCTAAATTGAGATATTAAATAAATGAAATCCTCGGACTCTGGTCATTAAGTA
 ### 25-mer
 
 <p align="center">
-<img src="pacificus_vs_others/output/kmer25_butterflyplot.png" width="1000">
+<img src="https://github.com/GlassLabGenomics/sleepershark_seq_analysis/blob/main/pacificus_vs_others/output/kmer25_butterflyplot.png" width="1000">
 </p>
 
 ### 30-mer 
 
 <p align="center">
-<img src="pacificus_vs_others/output/kmer30_butterflyplot.png" width="1000">
+<img src="https://github.com/GlassLabGenomics/sleepershark_seq_analysis/blob/main/pacificus_vs_others/output/kmer30_butterflyplot.png" width="1000">
 </p>
