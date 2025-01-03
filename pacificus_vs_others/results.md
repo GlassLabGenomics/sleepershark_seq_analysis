@@ -206,3 +206,15 @@ CATCTAGACCTAAATTGAGATATTAAATAAATGAAATCCTCGGACTCTGGTCATTAAGTA
 ## _Do the unique sequence segments match with primers found visually?_
 
 ## _What are the main unique zones as visualised with the butterfly plot?_
+
+### 25-mer
+
+<p align="center">
+<img src="pacificus_vs_others/output/kmer25_butterflyplot.png" width="1000">
+</p>
+
+### 30-mer 
+
+<p align="center">
+<img src="pacificus_vs_others/output/kmer30_butterflyplot.png" width="1000">
+</p>
