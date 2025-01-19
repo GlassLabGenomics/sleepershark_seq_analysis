@@ -65,7 +65,7 @@ def get_region_from_str(headerstr):
     region = headerstr.split('region')[1]
     region = region.split('_')[0] 
     region = region.split('-')
-    return (region[0], region[1])
+    return (int(region[0]), int(region[1]))
 
 def parse_header(fastadict):
     """Takes in a fastadict and parses out info
@@ -91,9 +91,11 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(usage="python3 %(prog)s [-h] pathfile")
     parser.add_argument("pathfile", help="file with paths to files")
+    parser.add_argument("outfile", help="file name of output table")
     args = parser.parse_args()
 
     pathfile = args.pathfile
+    outfile = args.outfile
 
     fastafiles = []
     with open(pathfile, 'r') as p:
@@ -105,4 +107,7 @@ if __name__ == "__main__":
         K, S, regions = combine_params_regions(fasta)
         combined_dict[(K, S)]=regions
 
-    print(combined_dict)
+    with open(outfile, 'w+') as w:
+        w.write(f'K-val\tS-val\tRegions\n')
+        for key, val in combined_dict.items():
+            w.write(f'{key[0]}\t{key[1]}\t{val}\n')
