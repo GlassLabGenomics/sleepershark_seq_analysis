@@ -3,7 +3,9 @@
 parse_unique_seqs.py
 
 Parses out k, s values and unique sequences (if any)
-from unikseq results: *unique.fa
+from unikseq result file ending in *unique.fa
+
+Potential to-dos: replace splitting with regex
 """
 
 from pathlib import Path
@@ -48,15 +50,21 @@ def parse_fasta(lines):
         res[k] = ''.join(v)
     return res
 
+def get_params_from_filename(infile):
+    params = infile.split('fasta')[3].split('-')
+    kval = int(params[1][1:])
+    sval = int(params[3][1:])
+    return kval, sval
+
 def read_fasta(infile):
     with open(infile, 'r') as f:
         fastadict = parse_fasta(f.readlines())
     return fastadict
 
 def get_region_from_str(headerstr):
-    region = headerstr.split('region')
-    region = region[1].split('_')[0]
-    region = region[0].split('-')
+    region = headerstr.split('region')[1]
+    region = region.split('_')[0] 
+    region = region.split('-')
     return (region[0], region[1])
 
 def parse_header(fastadict):
@@ -64,12 +72,22 @@ def parse_header(fastadict):
     from the header, returns regions as a list"""
     regionlist = []
     for entry in fastadict:
-        header = next(iter(entry))
-        start, stop = get_region_from_str(header)
+        start, stop = get_region_from_str(entry)
         regionlist.append((start, stop))
     return regionlist
 
-
+def combine_params_regions(infile):
+    """Parses out k and s values, finds regions.
+    Saves in a pandas dataframe"""
+    # prep input
+    combined_dict = {}
+    f_dict = read_fasta(infile)
+    k_val, s_val = get_params_from_filename(infile)
+    # get regions
+    reg_list = parse_header(f_dict)
+    # save output
+    combined_dict[(k_val, s_val)]=reg_list
+    return combined_dict
 
 if __name__ == "__main__":
 
@@ -79,3 +97,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     pathfile = args.pathfile
+
+    comb_dict = combine_params_regions(pathfile)
+    print(comb_dict)
