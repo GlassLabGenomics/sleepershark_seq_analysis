@@ -77,17 +77,14 @@ def parse_header(fastadict):
     return regionlist
 
 def combine_params_regions(infile):
-    """Parses out k and s values, finds regions.
-    Saves in a pandas dataframe"""
+    """Parses out k and s values, finds regions"""
     # prep input
-    combined_dict = {}
     f_dict = read_fasta(infile)
     k_val, s_val = get_params_from_filename(infile)
     # get regions
     reg_list = parse_header(f_dict)
-    # save output
-    combined_dict[(k_val, s_val)]=reg_list
-    return combined_dict
+    return k_val, s_val, reg_list
+
 
 if __name__ == "__main__":
 
@@ -98,5 +95,14 @@ if __name__ == "__main__":
 
     pathfile = args.pathfile
 
-    comb_dict = combine_params_regions(pathfile)
-    print(comb_dict)
+    fastafiles = []
+    with open(pathfile, 'r') as p:
+        for fasta in p.readlines():
+            fastafiles.append(fasta.strip())
+
+    combined_dict = {}
+    for fasta in fastafiles:
+        K, S, regions = combine_params_regions(fasta)
+        combined_dict[(K, S)]=regions
+
+    print(combined_dict)
