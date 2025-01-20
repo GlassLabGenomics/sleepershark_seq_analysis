@@ -110,4 +110,8 @@ if __name__ == "__main__":
     with open(outfile, 'w+') as w:
         w.write(f'K-val\tS-val\tRegions\n')
         for key, val in combined_dict.items():
-            w.write(f'{key[0]}\t{key[1]}\t{val}\n')
+            w.write(f'{key[0]}\t{key[1]}\t')
+            for valtuple in val:
+                w.write(f'{valtuple},')
+            w.write('\n')
+            

@@ -46,10 +46,12 @@ for i, interval_list in enumerate(intervals):
 
 # Customize the plot
 ax.set_yticks(range(len(param_combinations)))
-ax.set_yticklabels(param_combinations, fontsize=5)
-ax.set_ylabel("Parameter Combinations (K, S)", fontsize=40)
-ax.set_xlabel("Interval Values", fontsize=40)
+ax.set_yticklabels(param_combinations, fontsize=10)
+ax.set_ylabel("Parameter Combinations (K, S)", fontsize=50)
+ax.set_xlabel("Interval Values", fontsize=50)
 ax.set_title("Interval Plot for Parameter Combinations", fontsize=50)
+
+ax.tick_params(axis='x', labelsize=20)
 
 # Add extra spacing between y-axis labels
 ax.set_ylim(-1, len(param_combinations) + 1)
@@ -58,6 +60,6 @@ plt.grid(axis="x", linestyle="--", alpha=0.7)
 plt.tight_layout()
 
 # Save the plot as a high-quality PNG
-plt.savefig("interval_plot.png", dpi=200, bbox_inches="tight")
+plt.savefig("interval_plot.png", dpi=100, bbox_inches="tight")
 
 #plt.show()
