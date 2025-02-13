@@ -7,7 +7,7 @@ import re
 import matplotlib.pyplot as plt
 
 # Path to the file
-file_path = "../pacificus_vs_others/testfastas.out"
+file_path = "../pacificus_vs_somniosidae/intervals_somniosidae"
 
 # Parse the data
 data = []
@@ -47,11 +47,11 @@ for i, interval_list in enumerate(intervals):
 # Customize the plot
 ax.set_yticks(range(len(param_combinations)))
 ax.set_yticklabels(param_combinations, fontsize=10)
-ax.set_ylabel("Parameter Combinations (K, S)", fontsize=50)
-ax.set_xlabel("Interval Values", fontsize=50)
-ax.set_title("Interval Plot for Parameter Combinations", fontsize=50)
+ax.set_ylabel("Parameter Combinations (K, S)", fontsize=80)
+ax.set_xlabel("Position w.r.t. reference pacificus CO1 mitochondrial gene (interval values)", fontsize=80)
+ax.set_title("Interval Plot of Unique mito-CO1 Sequence Segments for Parameter Combinations K, S up to 150", fontsize=80)
 
-ax.tick_params(axis='x', labelsize=20)
+ax.tick_params(axis='x', labelsize=80)
 
 # Add extra spacing between y-axis labels
 ax.set_ylim(-1, len(param_combinations) + 1)
@@ -60,6 +60,5 @@ plt.grid(axis="x", linestyle="--", alpha=0.7)
 plt.tight_layout()
 
 # Save the plot as a high-quality PNG
-plt.savefig("interval_plot.png", dpi=100, bbox_inches="tight")
-
+plt.savefig("../pacificus_vs_somniosidae/interval_plot.png", dpi=100, bbox_inches="tight")
 #plt.show()
